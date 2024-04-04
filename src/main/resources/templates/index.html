@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutFragment/layout}">
+
+<div layout:fragment="content" >
+
+    index page
+    pdf 파일에 radio 버튼 만들어서 문제 풀 수 있게
+    회원가입 하면 자동 채점 + 과목별 평균점수 등등 기능 추가 열람 가능하도록
+    비회원은 시험 보기만 가능 채점 x
+
+    <!--stopWatch-->
+    <section th:replace="~{stopWatch/stopWatch :: stopWatchFragment}"></section>
+
+</div>
+
+</html>
