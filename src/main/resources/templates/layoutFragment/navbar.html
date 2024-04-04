@@ -3,7 +3,7 @@
 
         <nav class="navbar bg-dark-custom border-bottom border-body" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">HOME</a>
+                <a class="navbar-brand" th:href="@{/}">HOME</a>
 
                 <p>.</p>
                 <p>.</p>
@@ -15,7 +15,7 @@
                 <p>.</p>
                 <p>.</p>
                 <p>.</p>
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" method="get" th:action="@{/}">
                     <h5 class="quick-search">quick search</h5>
 
                     <select id="year" name="year">

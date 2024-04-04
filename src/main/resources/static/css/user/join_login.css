@@ -3,3 +3,8 @@
     margin-right: 30%;
     margin-top: 25px;
 }
+
+
+select option[value=""][disabled] {
+	display: none;
+}
