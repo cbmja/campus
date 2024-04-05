@@ -30,7 +30,6 @@ public class UserController {
             model.addAttribute("PasswordConfirmErrMsg" , "비밀번호 확인이 다릅니다.");
             return "/user/join";
         }
-
         memberSaveService.save(form);
         return"/index";
     }
