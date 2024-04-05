@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutFragment/layout}">
+<div layout:fragment="content" class="userForm" style="margin-bottom: 100px;">
+
+    <form method="post" th:action="@{/user/join}"  enctype="multipart/form-data">
+
+        <select id="year" name="year">
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select>
+        <select id="type" name="type">
+            <option value="1m">1급 전문스포츠지도사</option>
+            <option value="2m">2급 전문스포츠지도사</option>
+            <option value="1a">1급 생활스포츠지도사</option>
+            <option value="2a">2급 생활스포츠지도사</option>
+            <option value="em">건강운동관리사</option>
+            <option value="yy">유소년스포츠지도사</option>
+            <option value="oo">노인스포츠지도사</option>
+            <option value="1d">1급 장애인스포츠지도사</option>
+            <option value="2d">2급 장애인스포츠지도사</option>
+        </select>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">data</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일이 아이디로 사용됩니다"
+                       name="email">
+                <div id="emailHelp" class="form-text">비밀번호 분실시 이메일을 통해 재발급합니다.</div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">가입</button>
+        약관 동의는 모달로 띄우자
+
+
+    </form>
+
+</div>
+</html>
