@@ -1,3 +1,4 @@
+/*
 var timer;
 var isRunning = false;
 var seconds = 0, minutes = 0, hours = 0;
@@ -52,4 +53,4 @@ function updateTime() {
 }
 
 document.getElementById("startStopButton").addEventListener("click", startStopwatch);
-document.getElementById("resetButton").addEventListener("click", resetStopwatch);
+document.getElementById("resetButton").addEventListener("click", resetStopwatch);*/

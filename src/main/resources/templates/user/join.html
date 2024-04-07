@@ -3,54 +3,56 @@
       layout:decorate="~{layoutFragment/layout}">
 <div layout:fragment="content" class="userForm" style="margin-bottom: 100px;">
 
-    <form method="post" th:action="@{/user/join}">
+    <form method="post" th:action="@{/user/join}" th:object="${memberDto}">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일이 아이디로 사용됩니다"
-                    name="email">
+                    name="email" th:field="*{email}">
             <div id="emailHelp" class="form-text">비밀번호 분실시 이메일을 통해 재발급합니다.</div>
+            <p th:text="${ExistEmailErrMsg}"></p>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호"
-                    name="password">
+                    name="password" th:field="*{password}">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
             <input type="password" class="form-control" id="exampleInputPassword2" placeholder="비밀번호 확인"
-                    name="password2">
+                    name="password2" th:field="*{password2}">
             <p th:text="${PasswordConfirmErrMsg}"></p>
         </div>
 
         <div class="btn-group">
-        <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="subject">
+        <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="subject" th:field="*{subject}">
                 <ul class="dropdown-menu">
                     <li><option class="dropdown-item"value="" selected hidden>실기 종목</option></li>
-                    <li><option class="dropdown-item"value="1">축구</option></li>
-                    <li><option class="dropdown-item"value="2">보디빌딩</option></li>
-                    <li><option class="dropdown-item"value="3">수영</option></li>
-                    <li><option class="dropdown-item"value="3">골프</option></li>
-                    <li><option class="dropdown-item"value="3">상위 5종목 이후 기타</option></li>
+                    <li><option class="dropdown-item"value="soccer">축구</option></li>
+                    <li><option class="dropdown-item"value="bodyBuilding">보디빌딩</option></li>
+                    <li><option class="dropdown-item"value="swim">수영</option></li>
+                    <li><option class="dropdown-item"value="golf">골프</option></li>
+                    <li><option class="dropdown-item"value="etc">기타</option></li>
                 </ul>
         </select>
             <p>.....</p>
-            <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="regRoot">
+            <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="regRoot" th:field="*{regRoot}">
                 <ul class="dropdown-menu">
                     <li><option class="dropdown-item"value="" selected hidden>가입 루트</option></li>
-                    <li><option class="dropdown-item"value="1">지인추천</option></li>
-                    <li><option class="dropdown-item"value="2">인터넷 서칭중 발견</option></li>
-                    <li><option class="dropdown-item"value="3">광고를 하게 된다면 광고 1</option></li>
-                    <li><option class="dropdown-item"value="3">광고를 하게 된다면 광고 2</option></li>
+                    <li><option class="dropdown-item"value="recommendation">지인추천</option></li>
+                    <li><option class="dropdown-item"value="webSearch">인터넷 서칭중 발견</option></li>
+                    <li><option class="dropdown-item"value="advertisement1">광고 1</option></li>
+                    <li><option class="dropdown-item"value="advertisement2">광고 2</option></li>
                 </ul>
             </select>
             <p>.....</p>
-            <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="job">
+            <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="job" th:field="*{job}">
                 <ul class="dropdown-menu">
                     <li><option class="dropdown-item"value="" selected hidden >직업</option></li>
-                    <li><option class="dropdown-item"value="1">체대생(재학/휴학/졸업 모두)</option></li>
-                    <li><option class="dropdown-item"value="2">대학생(체대아닌 다른 전공)</option></li>
-                    <li><option class="dropdown-item"value="3">체육업 종사자</option></li>
-                    <li><option class="dropdown-item"value="3">비전공 취준생</option></li>
+                    <li><option class="dropdown-item"value="majorStudent">체대생(재학/휴학)</option></li>
+                    <li><option class="dropdown-item"value="student">비전공 대학생(체대 이외 학과)</option></li>
+                    <li><option class="dropdown-item"value="worker">체육업 종사자</option></li>
+                    <li><option class="dropdown-item"value="preparer">체육업 취준생(비전공)</option></li>
+                    <li><option class="dropdown-item"value="majorPreparer">체육업 취준생(체육전공)</option></li>
                 </ul>
             </select>
         </div>

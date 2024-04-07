@@ -6,6 +6,7 @@ import com.campus.campus.user.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +24,7 @@ public class MemberSaveService {
 
         if(memberRepository.findByEmail(form.getEmail()) != null){
             System.out.println("////////////////////이미 가입된 이메일");
+
             return;
         }
 

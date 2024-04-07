@@ -20,7 +20,7 @@ public class UserController {
 
 
     @GetMapping("/join")
-    public String join(){
+    public String join(MemberDto form){
 
         return"/user/join";
     }
@@ -30,18 +30,18 @@ public class UserController {
 
         if(!form.getPassword().equals(form.getPassword2())){
             model.addAttribute("PasswordConfirmErrMsg" , "비밀번호 확인이 다릅니다.");
-            return "/user/join";
+
         }memberSaveService.save(form);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated()) {
             System.out.println("is login");
-            return "/user/join";
+
         } else {
             System.out.println("is not login");
-            return "/user/join";
+
         }
 
-
+        return "/user/join";
     }
 
     @GetMapping("/login")
