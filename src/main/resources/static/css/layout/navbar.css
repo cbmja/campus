@@ -1,4 +1,12 @@
 
 .nv-bgc {
-    background-color: #36454F;
+    background-color: #005B99;
+}
+
+.nav-a {
+    color: #FFFFFF;
+}
+
+.nv-bgc a:hover {
+    background-color: white; /* 마우스 오버 시 배경색 변경 */
 }

@@ -1,0 +1,33 @@
+        /* 사이드바 스타일 설정 */
+.sidebar {
+    height: 100%; /* 전체 높이 */
+    width: 120px; /* 사이드바의 너비 */
+    position: fixed; /* 사이드바를 고정시킴 */
+    z-index: 1; /* 다른 요소보다 앞에 위치 */
+    top: 0; /* 상단에서 0px 떨어짐 */
+    left: 0; /* 좌측에서 0px 떨어짐 */
+    background-color: #F0F0F0; /* 배경색 */
+    overflow-x: hidden; /* 수평 스크롤바 숨김 */
+    padding-top: 20px; /* 상단 여백 */
+    margin-top: 97px;
+    text-align: center;
+}
+
+/* 사이드바 내부 링크 스타일 */
+.sidebar a {
+    padding: 10px 15px; /* 패딩 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-size: 18px; /* 글자 크기 */
+    color: #003366; /* 글자색 */
+    display: block; /* 블록 단위로 표시 */
+}
+.admin-a {
+    color: #800000 !important
+}
+
+
+
+.sidebar a:hover {
+    background-color: white; /* 마우스 오버 시 배경색 변경 */
+}
+

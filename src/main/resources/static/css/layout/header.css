@@ -1,3 +1,9 @@
-.h-bgc {
-    background-color: #800020;
+.h-bgc {/*배경*/
+    background-color: #003366;
+}
+
+.header-a {/*메뉴 글씨*/
+    color: #F0F0F0;
+    margin-left: 10px;
+    margin-right: 10px;
 }

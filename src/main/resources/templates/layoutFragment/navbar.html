@@ -2,15 +2,26 @@
 <section th:fragment="navbarFragment">
 
 
-    <div sec:authorize="hasAuthority('ROLE_ADMIN')">
-        <a class="navbar-brand" th:href="@{/admin/upload}">[관리자 시험 등록]</a>
-        <a class="navbar-brand" href="#">[관리자 답안 등록]</a>
-    </div>
     <nav class="nav justify-content-center nv-bgc">
-        <a class="nav-link active" aria-current="page" href="#">home</a>
-        <a class="nav-link" href="#">시험문제</a>
-        <a class="nav-link" href="#">공지</a>
-        <a class="nav-link disabled" aria-disabled="true">자유게시판</a>
+        <!--
+        <a class="nav-link active nav-a" aria-current="page" href="#">home</a>
+        <a class="nav-link nav-a" href="#">시험문제</a>
+        <a class="nav-link nav-a" href="#">공지</a>
+        <a class="nav-link nav-a" href="#">공지</a>
+        <a class="nav-link nav-a" th:href="@{/admin/upload}" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자 시험 등록</a>
+        <a class="nav-link nav-a" href="#" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자 답안 등록</a>
+        -->
+        <div th:each="menu : ${menus}" >
+            <a class="nav-link nav-a" th:href="@{${menu.value}}">[[${menu.key}]]</a>
+        </div>
     </nav>
+    <div th:if="${menu != null}">
+
+        <nav class="nav justify-content-center nv-bgc">
+            <div th:each="menu : ${menus}" >
+                <a class="nav-link active" aria-current="page" th:href="@{${menu.value}}">[[${menu.key}]]</a>
+            </div>
+        </nav>
+    </div>
 </section>
 </html>

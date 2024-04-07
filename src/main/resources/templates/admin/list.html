@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutFragment/layout}">
+<div layout:fragment="content" class="userForm" style="margin-bottom: 100px;">
+
+    <h1>현재 업로드한 시험 목록</h1>
+
+<ul>
+    <li th:each="item : ${list}">
+        <a th:text="${item.ImpYear+'년도 _ '+item.category}"></a>
+    </li>
+</ul>
+
+
+
+</div>
+</html>

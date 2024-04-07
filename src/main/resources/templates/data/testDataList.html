@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutFragment/layout}">
+
+<div layout:fragment="content" >
+ 시험문제목록
+    <ul>
+        <li th:each="item : ${list}">
+            <a th:text="${item.ImpYear+'년도 _ '+item.category}"></a>
+        </li>
+    </ul>
+
+
+</div>
+
+</html>

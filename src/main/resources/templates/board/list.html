@@ -1,0 +1,64 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutFragment/layout}">
+
+<div layout:fragment="content" style="margin-left: 10%; margin-right: 10%; margin-top: 30px;" >
+
+
+
+        <div class="row my-3">
+            <div class="col-6">
+                <a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <select class="form-select form-select-sm" aria-label="Small select example">
+                        <option value="3">전체</option>
+                        <option value="1">제목</option>
+                        <option value="2">글쓴이</option>
+                        <option value="3">내용</option>
+                    </select>
+                    <input type="text" id="search_kw" class="form-control" >
+                    <button type="button" class="btn btn-success" style="margin: 0;">검색</button>
+                </div>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead class="table-primary">
+            <tr class="text-center">
+                <th>번호</th>
+                <th style="width:50%">제목</th>
+                <th>글쓴이</th>
+                <th>작성일시</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center">
+                <td style="background-color: $teal-200;">s</td>
+                <td>s</td>
+                <td>s</td>
+                <td>s</td>
+            </tr>
+            <tr class="text-center" >
+                <td>s</td>
+                <td>s</td>
+                <td>s</td>
+                <td>s</td>
+            </tr>
+            <tr class="text-center" >
+                <td>s</td>
+                <td>s</td>
+                <td>s</td>
+                <td>s</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+</div>
+
+</html>
