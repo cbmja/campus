@@ -3,6 +3,8 @@ package com.campus.campus.user.controller;
 import com.campus.campus.user.dto.MemberDto;
 import com.campus.campus.user.service.MemberSaveService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,23 +31,31 @@ public class UserController {
         if(!form.getPassword().equals(form.getPassword2())){
             model.addAttribute("PasswordConfirmErrMsg" , "비밀번호 확인이 다릅니다.");
             return "/user/join";
+        }memberSaveService.save(form);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            System.out.println("is login");
+            return "/user/join";
+        } else {
+            System.out.println("is not login");
+            return "/user/join";
         }
-        memberSaveService.save(form);
-        return"/index";
+
+
     }
 
     @GetMapping("/login")
     public String login(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            System.out.println("is login");
 
+        } else {
+            System.out.println("is not login");
+
+        }
         return"/user/login";
     }
-
-
-
-
-
-
-
 
 
 

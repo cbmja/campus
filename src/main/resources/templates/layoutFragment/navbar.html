@@ -1,52 +1,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<nav th:fragment="navbarFragment">
-
-        <nav class="navbar bg-dark-custom border-bottom border-body" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" th:href="@{/}">HOME</a>
-
-                <p>.</p>
-                <p>.</p>
-                <p>.</p>
-                <a class="navbar-brand" href="#">시험문제</a>
-                <a class="navbar-brand" href="#">공지</a>
-                <a class="navbar-brand" href="#">QnA</a>
-                <a class="navbar-brand" href="#">자유게시판</a>
-                <p>.</p>
-                <p>.</p>
-                <p>.</p>
-                <form class="d-flex" role="search" method="get" th:action="@{/}">
-                    <h5 class="quick-search">quick search</h5>
-
-                    <select id="year" name="year">
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                    </select>
-                    <select id="type" name="type">
-                        <option value="1m">1급 전문스포츠지도사</option>
-                        <option value="2m">2급 전문스포츠지도사</option>
-                        <option value="1a">1급 생활스포츠지도사</option>
-                        <option value="2a">2급 생활스포츠지도사</option>
-                        <option value="em">건강운동관리사</option>
-                        <option value="yy">유소년스포츠지도사</option>
-                        <option value="oo">노인스포츠지도사</option>
-                        <option value="1d">1급 장애인스포츠지도사</option>
-                        <option value="2d">2급 장애인스포츠지도사</option>
-                    </select>
-                    <button class="btn btn-outline-success" type="submit">찾기</button>
-                </form>
-            </div>
-        </nav>
+<section th:fragment="navbarFragment">
 
 
-
-
-</nav>
+    <div sec:authorize="hasAuthority('ROLE_ADMIN')">
+        <a class="navbar-brand" th:href="@{/admin/upload}">[관리자 시험 등록]</a>
+        <a class="navbar-brand" href="#">[관리자 답안 등록]</a>
+    </div>
+    <nav class="nav justify-content-center nv-bgc">
+        <a class="nav-link active" aria-current="page" href="#">home</a>
+        <a class="nav-link" href="#">시험문제</a>
+        <a class="nav-link" href="#">공지</a>
+        <a class="nav-link disabled" aria-disabled="true">자유게시판</a>
+    </nav>
+</section>
 </html>

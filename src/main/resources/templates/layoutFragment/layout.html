@@ -15,16 +15,14 @@
 
     <!--header-->
     <link rel="stylesheet" href="/css/layout/header.css">
-    <!--navbar-->
+    <!--navi-->
     <link rel="stylesheet" href="/css/layout/navbar.css">
-    <!--footer-->
-    <link rel="stylesheet" href="/css/layout/footer.css">
+    <!--aside-->
+    <link rel="stylesheet" href="/css/layout/aside.css">
     <!--stopWatch-->
     <link rel="stylesheet" href="/css/stopWatch/stopWatch.css">
     <!--login/join-->
     <link rel="stylesheet" href="/css/user/join_login.css">
-    <!--글씨체-->
-
 
 
 
@@ -32,16 +30,24 @@
 </head>
 <body>
         <!--헤더-->
+        <div style="margin-left: 120px;">
         <header th:replace="~{layoutFragment/header :: headerFragment}"></header>
-
+        </div>
         <!--네비-->
+        <div style="margin-left: 120px;">
         <nav th:replace="~{layoutFragment/navbar :: navbarFragment}"></nav>
+        </div>
+        <!--사이드바-->
+        <nav th:replace="~{layoutFragment/aside :: sidebarFragment}"></nav>
 
         <!--컨텐츠-->
-        <th:block layout:fragment="content"></th:block>
+        <div style="margin: 20px 20px 20px 140px;">
+            <th:block layout:fragment="content"></th:block>
+        </div>
+
 
 <!--
-
+sidebarFragment
         푸터 하단 고정 안돼서 뺐음 잠시
         <footer th:replace="~{layoutFragment/footer :: footerFragment}"></footer>
 -->

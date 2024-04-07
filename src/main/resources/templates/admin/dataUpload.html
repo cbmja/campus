@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutFragment/layout}">
+<div layout:fragment="content" class="userForm" style="margin-bottom: 100px;">
+
+    <form method="post" th:action="@{/admin/uploadProc}" enctype="multipart/form-data">
+
+
+        <div class="btn-group">
+            <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="ImpYear">
+                <ul class="dropdown-menu">
+                    <li><option class="dropdown-item"value="" selected hidden>연도</option></li>
+                    <li><option class="dropdown-item"value="2015">2015</option></li>
+                    <li><option class="dropdown-item"value="2016">2016</option></li>
+                    <li><option class="dropdown-item"value="2017">2017</option></li>
+                    <li><option class="dropdown-item"value="2018">2018</option></li>
+                    <li><option class="dropdown-item"value="2019">2019</option></li>
+                    <li><option class="dropdown-item"value="2020">2020</option></li>
+                    <li><option class="dropdown-item"value="2021">2021</option></li>
+                    <li><option class="dropdown-item"value="2022">2022</option></li>
+                    <li><option class="dropdown-item"value="2023">2023</option></li>
+
+                </ul>
+            </select>
+            <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="category">
+                <ul class="dropdown-menu">
+                    <li><option class="dropdown-item"value="" selected hidden>사험 종류</option></li>
+                    <li><option class="dropdown-item"value="1급전문스포츠지도사">1급전문스포츠지도사</option></li>
+                    <li><option class="dropdown-item"value="2급전문스포츠지도사">2급전문스포츠지도사</option></li>
+                    <li><option class="dropdown-item"value="1급생활스포츠지도사">1급생활스포츠지도사</option></li>
+                    <li><option class="dropdown-item"value="2급생활스포츠지도사">2급생활스포츠지도사</option></li>
+                    <li><option class="dropdown-item"value="건강운동관리사">건강운동관리사</option></li>
+                    <li><option class="dropdown-item"value="유소년스포츠지도사">유소년스포츠지도사</option></li>
+                    <li><option class="dropdown-item"value="노인스포츠지도사">노인스포츠지도사</option></li>
+                    <li><option class="dropdown-item"value="1급장애인스포츠지도사">1급장애인스포츠지도사</option></li>
+                    <li><option class="dropdown-item"value="2급장애인스포츠지도사">2급장애인스포츠지도사</option></li>
+                </ul>
+            </select>
+        </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">pdf file</label>
+                <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="test file"
+                       name="testFile">
+                <div id="emailHelp" class="form-text">시험 파일을 업로드 하세요</div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">등록</button>
+    </form>
+
+</div>
+</html>
