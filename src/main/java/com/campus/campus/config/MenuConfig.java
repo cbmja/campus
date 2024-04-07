@@ -34,8 +34,8 @@ public class MenuConfig {
 
         answerMenu.put("답안지 목록","/answer/list");
 
-        boardMenu.put("질문 게시판","/board/question");
-        boardMenu.put("자유 게시판","/board/free");
+        boardMenu.put("질문 게시판","/board/list");
+        boardMenu.put("자유 게시판","/board/list");
 
     }
 
