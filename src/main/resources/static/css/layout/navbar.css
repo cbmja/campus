@@ -8,5 +8,6 @@
 }
 
 .nv-bgc a:hover {
-    background-color: white; /* 마우스 오버 시 배경색 변경 */
+    background-color: #1A75B3; /* 마우스 오버 시 배경색 변경 */
+     color: #FFA500 /*글씨 색*/
 }

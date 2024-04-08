@@ -18,6 +18,8 @@ public class BoardController {
     @GetMapping("/notice/list")
     public String notice(Model model){
         model.addAttribute("menus" , menuConfig.getBoardMenu());
+        model.addAttribute("subMenu" , "공지사항");
+
     //쿼리다르게
 
         return "board/list";
@@ -25,6 +27,8 @@ public class BoardController {
     @GetMapping("/QnA/list")
     public String QnA(Model model){
         model.addAttribute("menus" , menuConfig.getBoardMenu());
+        model.addAttribute("subMenu" , "문의사항");
+
     //쿼리다르게
 
         return "board/list";
@@ -32,6 +36,8 @@ public class BoardController {
     @GetMapping("/question/list")
     public String question(Model model){
         model.addAttribute("menus" , menuConfig.getBoardMenu());
+        model.addAttribute("subMenu" , "질문 게시판");
+
     //쿼리다르게
 
         return "board/list";
@@ -39,6 +45,8 @@ public class BoardController {
     @GetMapping("/free/list")
     public String free(Model model){
         model.addAttribute("menus" , menuConfig.getBoardMenu());
+        model.addAttribute("subMenu" , "자유 게시판");
+
     //쿼리다르게
 
         return "board/list";

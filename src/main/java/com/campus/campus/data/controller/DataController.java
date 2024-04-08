@@ -19,6 +19,9 @@ public class DataController {
     @GetMapping("/test/list")
     public String testList(Model model){
         model.addAttribute("menus" , menuConfig.getDataMenu());
+        model.addAttribute("subMenu" , "시험지");
+
+
         model.addAttribute("list" , testDataInfoService.getList());
 
         return "data/testDataList";
@@ -27,6 +30,8 @@ public class DataController {
     @GetMapping("/answer/list")
     public String answerList(Model model){
         model.addAttribute("menus" , menuConfig.getDataMenu());
+        model.addAttribute("subMenu" , "답안지");
+
 
 
         return "data/answerDataList";

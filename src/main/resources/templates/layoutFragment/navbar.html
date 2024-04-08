@@ -3,16 +3,11 @@
 
     <div th:if="${menus != null}">
     <nav class="nav justify-content-center nv-bgc">
-        <!--
-        <a class="nav-link active nav-a" aria-current="page" href="#">home</a>
-        <a class="nav-link nav-a" href="#">시험문제</a>
-        <a class="nav-link nav-a" href="#">공지</a>
-        <a class="nav-link nav-a" href="#">공지</a>
-        <a class="nav-link nav-a" th:href="@{/admin/upload}" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자 시험 등록</a>
-        <a class="nav-link nav-a" href="#" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자 답안 등록</a>
-        -->
         <div th:each="menu : ${menus}" >
-            <a class="nav-link nav-a" th:href="@{${menu.value}}">[[${menu.key}]]</a>
+
+            <a th:if="${!menu.key.equals(subMenu)}" class="nav-link nav-a" th:href="@{${menu.value}}" >[[${menu.key}]]</a>
+            <a th:if="${menu.key.equals(subMenu)}" class="nav-link nav-a" th:href="@{${menu.value}}" style="background-color: white; color: #005B99;">[[${menu.key}]]</a>
+
         </div>
     </nav>
     </div>
