@@ -1,9 +1,8 @@
 package com.campus.campus.admin.controller;
 
 import com.campus.campus.config.MenuConfig;
-import com.campus.campus.data.dto.TestDataDto;
-import com.campus.campus.data.service.TestDataInfoService;
-import com.campus.campus.data.service.TestDataSaveService;
+import com.campus.campus.data.dto.DataDto;
+import com.campus.campus.data.service.DataSaveService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,25 +17,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 
     private final MenuConfig menuConfig;
+    private final DataSaveService dataSaveService;
 
-    private final TestDataSaveService testDataSaveService;
-    private final TestDataInfoService testDataInfoService;
 
 
     @GetMapping("/upload")
     public String upload(Model model){
         model.addAttribute("menus" , menuConfig.getAdminMenu());
-
+        model.addAttribute("subMenu" , "시험지 등록");
 
         return "admin/upload";
     }
 
     @PostMapping("/uploadProc")
-    public String uploadProc(Model model ,TestDataDto form){
-        //model.addAttribute("menus" , menuConfig.getAdminMenu());
+    public String uploadProc(Model model , DataDto form){
+        dataSaveService.save(form);
 
 
-        testDataSaveService.save(form);
 
         return "redirect:/admin/list";
     }
@@ -44,10 +41,9 @@ public class AdminController {
     @GetMapping("/list")
     public String dataList(Model model){
         model.addAttribute("menus" , menuConfig.getAdminMenu());
+        model.addAttribute("subMenu" , "시험지 목록");
 
 
-
-        model.addAttribute("list" , testDataInfoService.getList());
 
         return "admin/list";
     }

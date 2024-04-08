@@ -18,7 +18,7 @@ public class MenuConfig {
     private  Map<String, String> pTestMenu = new HashMap<>();
    {
 
-        adminMenu.put("시험지 등록","/admin/list");
+        adminMenu.put("시험지 등록","/admin/upload");
         adminMenu.put("시험지 목록","/admin/list");
 
        boardMenu.put("공지사항","/board/notice/list");

@@ -40,9 +40,10 @@
 -->
 <hr>
         <div class="list-group" th:each="item : ${list}">
-            <a href="#" class="list-group-item list-group-item-action" th:text="${item.ImpYear+'년도 _ '+item.category}"></a>
+            <a href="#" class="list-group-item list-group-item-action" th:text="${item}" style="text-align : center;"></a>
         </div>
 <hr>
+
 
 </div>
 
