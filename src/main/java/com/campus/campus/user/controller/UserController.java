@@ -32,28 +32,14 @@ public class UserController {
             model.addAttribute("PasswordConfirmErrMsg" , "비밀번호 확인이 다릅니다.");
 
         }memberSaveService.save(form);
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.isAuthenticated()) {
-            System.out.println("is login");
 
-        } else {
-            System.out.println("is not login");
-
-        }
 
         return "/user/join";
     }
 
     @GetMapping("/login")
     public String login(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.isAuthenticated()) {
-            System.out.println("is login");
 
-        } else {
-            System.out.println("is not login");
-
-        }
         return"/user/login";
     }
 

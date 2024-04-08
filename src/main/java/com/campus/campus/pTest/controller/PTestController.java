@@ -1,4 +1,4 @@
-package com.campus.campus.answer.controller;
+package com.campus.campus.pTest.controller;
 
 import com.campus.campus.config.MenuConfig;
 import lombok.RequiredArgsConstructor;
@@ -8,25 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/answer")
 @RequiredArgsConstructor
-public class AnswerController {
+@RequestMapping("/pTest")
+public class PTestController {
 
     private final MenuConfig menuConfig;
 
-
-    @GetMapping
-    private String answer(Model model){
-        model.addAttribute("menus" , menuConfig.getAnswerMenu());
-
-        return "redirect:/answer/list";
-    }
-
     @GetMapping("/list")
-    private String list(Model model){
-        model.addAttribute("menus" , menuConfig.getAnswerMenu());
+    public String list(Model model){
 
-        return "answer/list";
+        model.addAttribute("menus" , menuConfig.getPTestMenu());
+
+        return "pTest/list";
     }
 
 }

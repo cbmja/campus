@@ -15,16 +15,31 @@ public class BoardController {
     private final MenuConfig menuConfig;
 
 
-    @GetMapping
-    public String board(Model model){
+    @GetMapping("/notice/list")
+    public String notice(Model model){
         model.addAttribute("menus" , menuConfig.getBoardMenu());
+    //쿼리다르게
 
-        return "redirect:/board/list";
+        return "board/list";
     }
-
-    @GetMapping("/list")
-    public String list(Model model){
+    @GetMapping("/QnA/list")
+    public String QnA(Model model){
         model.addAttribute("menus" , menuConfig.getBoardMenu());
+    //쿼리다르게
+
+        return "board/list";
+    }
+    @GetMapping("/question/list")
+    public String question(Model model){
+        model.addAttribute("menus" , menuConfig.getBoardMenu());
+    //쿼리다르게
+
+        return "board/list";
+    }
+    @GetMapping("/free/list")
+    public String free(Model model){
+        model.addAttribute("menus" , menuConfig.getBoardMenu());
+    //쿼리다르게
 
         return "board/list";
     }

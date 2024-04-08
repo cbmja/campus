@@ -2,12 +2,10 @@
 <aside th:fragment="sidebarFragment" >
 
     <div class="sidebar">
-        <a th:href="@{/notice}">공지</a>
-        <a th:href="@{/QnA}">Q&A</a>
-        <a th:href="@{/test}">문제</a>
-        <a th:href="@{/answer}">정답</a>
-        <a th:href="@{/board}">질문</a>
-        <a class="admin-a" th:href="@{/admin}" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자</a>
+        <a th:href="@{/pTest/list}">모의고사</a>
+        <a th:href="@{/data/test/list}">자료실</a>
+        <a th:href="@{/board/notice/list}">게시판</a>
+        <a class="admin-a" th:href="@{/admin/list}" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자</a>
     </div>
 </aside>
 </html>

@@ -22,13 +22,6 @@ public class AdminController {
     private final TestDataSaveService testDataSaveService;
     private final TestDataInfoService testDataInfoService;
 
-    @GetMapping
-    public String main(Model model){
-        model.addAttribute("menus" , menuConfig.getAdminMenu());
-
-
-        return "redirect:/admin/list";
-    }
 
     @GetMapping("/upload")
     public String upload(Model model){
@@ -40,7 +33,7 @@ public class AdminController {
 
     @PostMapping("/uploadProc")
     public String uploadProc(Model model ,TestDataDto form){
-        model.addAttribute("menus" , menuConfig.getAdminMenu());
+        //model.addAttribute("menus" , menuConfig.getAdminMenu());
 
 
         testDataSaveService.save(form);

@@ -1,8 +1,35 @@
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
       layout:decorate="~{layoutFragment/layout}">
 
-<div layout:fragment="content" >
+<div layout:fragment="content" class="userForm">
+
+    <form>
+    <!--<div class="btn-group">-->
+        <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="impYear">
+            <ul class="dropdown-menu">
+                <li><option class="dropdown-item"value="" selected hidden>년도</option></li>
+                <li><option class="dropdown-item"value="soccer">15</option></li>
+                <li><option class="dropdown-item"value="bodyBuilding">16</option></li>
+                <li><option class="dropdown-item"value="swim">17</option></li>
+                <li><option class="dropdown-item"value="golf">18</option></li>
+                <li><option class="dropdown-item"value="etc">19</option></li>
+            </ul>
+        </select>
+        <select class="form-select form-select-lg mb-3" aria-label="Large select example" required name="category">
+            <ul class="dropdown-menu">
+                <li><option class="dropdown-item"value="" selected hidden>시험</option></li>
+                <li><option class="dropdown-item"value="recommendation">생체 2</option></li>
+                <li><option class="dropdown-item"value="webSearch">생체 1</option></li>
+                <li><option class="dropdown-item"value="advertisement1">건운사</option></li>
+                <li><option class="dropdown-item"value="advertisement2">유소년</option></li>
+            </ul>
+        </select>
+    <!--</div>-->
+        <input class="btn btn-primary" type="submit" value="찾기" style="margin-bottom: 30px; width: 100%;">
+    </form>
+<!--
+
  시험문제목록
     <ul>
         <li th:each="item : ${list}">
@@ -10,6 +37,12 @@
         </li>
     </ul>
 
+-->
+<hr>
+        <div class="list-group" th:each="item : ${list}">
+            <a href="#" class="list-group-item list-group-item-action" th:text="${item.ImpYear+'년도 _ '+item.category}"></a>
+        </div>
+<hr>
 
 </div>
 

@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <section th:fragment="navbarFragment">
 
-
+    <div th:if="${menus != null}">
     <nav class="nav justify-content-center nv-bgc">
         <!--
         <a class="nav-link active nav-a" aria-current="page" href="#">home</a>
@@ -15,13 +15,13 @@
             <a class="nav-link nav-a" th:href="@{${menu.value}}">[[${menu.key}]]</a>
         </div>
     </nav>
-    <div th:if="${menu != null}">
+    </div>
 
+    <div th:if="${menus == null}">
         <nav class="nav justify-content-center nv-bgc">
-            <div th:each="menu : ${menus}" >
-                <a class="nav-link active" aria-current="page" th:href="@{${menu.value}}">[[${menu.key}]]</a>
-            </div>
+                <a class="nav-link nav-a" aria-current="page">환영합니다.</a>
         </nav>
     </div>
+
 </section>
 </html>
