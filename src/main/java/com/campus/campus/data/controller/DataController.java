@@ -24,9 +24,10 @@ public class DataController {
     private final MenuConfig menuConfig;
 
     @GetMapping("/list")
-    public String dataList(Model model , @RequestParam(name = "category") String category){
+    public String dataList(Model model , @RequestParam(name = "code") String code){
         model.addAttribute("menus" , menuConfig.getDataMenu());
-        model.addAttribute("subMenu" , category);
+        model.addAttribute("code" , code);
+
 
 
 

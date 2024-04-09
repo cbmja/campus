@@ -16,7 +16,6 @@ public class PTestController {
 
     @GetMapping("/list")
     public String list(Model model){
-
         model.addAttribute("menus" , menuConfig.getPTestMenu());
 
         return "pTest/list";

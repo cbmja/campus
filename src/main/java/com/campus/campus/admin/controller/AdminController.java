@@ -29,6 +29,7 @@ public class AdminController {
 
 
 
+
     @GetMapping("/upload")
     public String upload(Model model){
         model.addAttribute("menus" , menuConfig.getAdminMenu());
@@ -36,6 +37,7 @@ public class AdminController {
 
         return "admin/upload";
     }
+
 
     @PostMapping("/uploadProc")
     public String uploadProc(Model model , DataDto form){
@@ -47,11 +49,15 @@ public class AdminController {
     }
 
     @GetMapping("/list")
-    public String dataList(Model model , @RequestParam(name = "category") String category){
+    public String dataList(Model model , @RequestParam(name = "code") String code){
         model.addAttribute("menus" , menuConfig.getAdminMenu());
-        model.addAttribute("subMenu" , category);
-        model.addAttribute("items" , dataInfoService.getAll());
+        model.addAttribute("code" , code);
+        String category = menuConfig.getAdminMenu().get(code).get(0);
+        model.addAttribute("cate" , category);
 
+
+        model.addAttribute("titems" , dataInfoService.findByCategory(category , "test"));
+        model.addAttribute("aitems" , dataInfoService.findByCategory(category , "answer"));
 
 
         return "admin/list";

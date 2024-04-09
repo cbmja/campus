@@ -4,9 +4,9 @@
     <div class="sidebar">
 
         <a th:href="@{/pTest/list}">모의고사</a>
-        <a th:href="@{/data/list?category=시험지}">자료실</a>
-        <a th:href="@{/board/list?category=공지사항}">게시판</a>
-        <a class="admin-a" th:href="@{/admin/list?category=2급생활스포츠지도사}" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자</a>
+        <a th:href="@{/data/list?code=test}">자료실</a>
+        <a th:href="@{/board/list?code=notice}">게시판</a>
+        <a class="admin-a" th:href="@{/admin/list?code=2b}" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자</a>
 
         </div>
 </aside>

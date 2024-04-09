@@ -5,8 +5,8 @@
     <nav class="nav justify-content-center nv-bgc">
         <div th:each="menu : ${menus}" >
 
-            <a th:if="${!menu.key.equals(subMenu)}" class="nav-link nav-a" th:href="@{${menu.value}}" >[[${menu.key}]]</a>
-            <a th:if="${menu.key.equals(subMenu)}" class="nav-link nav-a" th:href="@{${menu.value}}" style="background-color: white; color: #005B99;">[[${menu.key}]]</a>
+            <a th:if="${!menu.key.equals(code)}" class="nav-link nav-a" th:href="@{${menu.value.get(1)}}" >[[${menu.value.get(0)}]]</a>
+            <a th:if="${menu.key.equals(code)}" class="nav-link nav-a" th:href="@{${menu.value.get(1)}}" style="background-color: white; color: #005B99;">[[${menu.value.get(0)}]]</a>
 
         </div>
     </nav>

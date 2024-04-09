@@ -17,9 +17,10 @@ public class BoardController {
 
 
     @GetMapping("/list")
-    public String dataList(Model model , @RequestParam(name = "category") String category){
+    public String dataList(Model model , @RequestParam(name = "code") String code){
         model.addAttribute("menus" , menuConfig.getBoardMenu());
-        model.addAttribute("subMenu" , category);
+        model.addAttribute("code" , code);
+
 
 
 

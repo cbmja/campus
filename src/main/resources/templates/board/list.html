@@ -3,7 +3,11 @@
       layout:decorate="~{layoutFragment/layout}">
 
 <div layout:fragment="content" style="margin-left: 10%; margin-right: 10%; margin-top: 30px;" >
-    <h1>[[${subMenu}]]</h1>
+    <h1 th:if="${code.equals('question')}">질문 게시판</h1>
+    <h1 th:if="${code.equals('qna')}">문의사항</h1>
+    <h1 th:if="${code.equals('free')}">자유 게시판</h1>
+    <h1 th:if="${code.equals('notice')}">공지사항</h1>
+
 <hr>
         <div class="row my-3">
             <div class="col-6">
