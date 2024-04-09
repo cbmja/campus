@@ -6,7 +6,7 @@
         <a th:href="@{/pTest/list}">모의고사</a>
         <a th:href="@{/data/list?code=test}">자료실</a>
         <a th:href="@{/board/list?code=notice}">게시판</a>
-        <a class="admin-a" th:href="@{/admin/list?code=2b}" sec:authorize="hasAuthority('ROLE_ADMIN')">관리자</a>
+        <a class="admin-a" th:href="@{/admin/list?code=2b}" >관리자</a><!--sec:authorize="hasAuthority('ROLE_ADMIN')"-->
 
         </div>
 </aside>
