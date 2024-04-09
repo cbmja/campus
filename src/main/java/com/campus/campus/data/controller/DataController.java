@@ -1,6 +1,8 @@
 package com.campus.campus.data.controller;
 
 import com.campus.campus.config.MenuConfig;
+import com.campus.campus.data.service.CodeInfoService;
+import com.campus.campus.data.service.DataInfoService;
 import jakarta.servlet.ServletException;
 
 import lombok.RequiredArgsConstructor;
@@ -22,12 +24,19 @@ import java.util.stream.Collectors;
 public class DataController {
 
     private final MenuConfig menuConfig;
+    private final DataInfoService dataInfoService;
+    private final CodeInfoService codeInfoService;
 
     @GetMapping("/list")
     public String dataList(Model model , @RequestParam(name = "code") String code){
         model.addAttribute("menus" , menuConfig.getDataMenu());
         model.addAttribute("code" , code);
+        String category = menuConfig.getDataMenu().get(code).get(0);
+        model.addAttribute("cate" , category);
 
+
+        model.addAttribute("titems" , dataInfoService.findByCategoryAndType(code , "test"));
+        model.addAttribute("aitems" , dataInfoService.findByCategoryAndType(code , "answer"));
 
 
 

@@ -1,0 +1,26 @@
+.data {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.container {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  padding: 0%;
+  margin: 0%;
+}
+
+.left, .right {
+  flex: 1; /* 컨테이너 공간을 균등하게 나눔 */
+  height: 100vh; /* 전체 화면 높이 */
+}
+
+/* 선택적으로 추가 스타일링 */
+.left {
+  background-color: rgba(184, 216, 184, 0.5);
+}
+
+.right {
+  background-color:  rgba(184, 216, 232, 0.5);
+}

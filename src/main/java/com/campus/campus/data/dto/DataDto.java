@@ -16,7 +16,7 @@ public class DataDto {
 
     private MultipartFile testFile;
 
-    private String form;
+    private String form="answer";
 
     private String fileName;
 

@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="/css/board/board.css">
     <!--admin-->
     <link rel="stylesheet" href="/css/admin/admin.css">
-
+    <!--data-->
+    <link rel="stylesheet" href="/css/data/data.css">
 
 
     <title>spo</title>
@@ -56,17 +57,14 @@ sidebarFragment
         <footer th:replace="~{layoutFragment/footer :: footerFragment}"></footer>
 -->
 
-
-
-
     <!--부트스트랩-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!--stopWatch-->
-    <script src="js/stopWatch/stopWatch.js"></script>
+    <script th:src="@{/js/stopWatch/stopWatch.js}"></script>
     <!--data-->
-    <script src="js/data/data.js"></script>
+    <script th:src="@{/js/data/data.js}"></script>
     <!--admin-->
-    <script src="js/admin/admin.js"></script>
+    <script th:src="@{/js/admin/admin.js}"></script>
 
 </body>
 </html>

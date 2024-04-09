@@ -2,9 +2,32 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layoutFragment/layout}">
 
-<div layout:fragment="content" >
+<div layout:fragment="content" class="data" style="margin-bottom: 100px;">
 
-dataList
+    <h1>[[${cate}]]</h1>
+    <div class="d-grid gap-2">
+        <a th:href="@{/admin/upload}" class="btn btn-primary" sec:authorize="hasAuthority('ROLE_ADMIN')">추가등록</a>
+    </div>
+
+    <div class="container">
+        <div class="left">
+            문제
+            <hr>
+            <div class="list-group" th:each="item : ${titems}">
+                <a href="#" class="list-group-item list-group-item-action" th:text="${item.fileName}" style="text-align : center;"></a>
+            </div>
+            <hr>
+        </div>
+        <div class="right">
+            답안
+            <hr>
+            <div class="list-group" th:each="item : ${aitems}">
+                <a href="#" class="list-group-item list-group-item-action" th:text="${item.fileName}" style="text-align : center;"></a>
+            </div>
+            <hr>
+
+        </div>
+    </div>
 
 
 

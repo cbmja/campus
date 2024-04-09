@@ -32,8 +32,8 @@ public class AdminController {
 
     @GetMapping("/upload")
     public String upload(Model model){
-        model.addAttribute("menus" , menuConfig.getAdminMenu());
-        model.addAttribute("subMenu" , "시험지 등록");
+
+
 
         return "admin/upload";
     }
@@ -45,7 +45,7 @@ public class AdminController {
 
 
 
-        return "redirect:/admin/list?category="+form.getCategory();
+        return "redirect:/admin/list?code="+form.getCategory();
     }
 
     @GetMapping("/list")
@@ -56,8 +56,8 @@ public class AdminController {
         model.addAttribute("cate" , category);
 
 
-        model.addAttribute("titems" , dataInfoService.findByCategory(category , "test"));
-        model.addAttribute("aitems" , dataInfoService.findByCategory(category , "answer"));
+        model.addAttribute("titems" , dataInfoService.findByCategoryAndType(code , "test"));
+        model.addAttribute("aitems" , dataInfoService.findByCategoryAndType(code , "answer"));
 
 
         return "admin/list";

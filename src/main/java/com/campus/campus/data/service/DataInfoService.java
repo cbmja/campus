@@ -14,8 +14,8 @@ public class DataInfoService {
     private final DataRepository dataRepository;
 
 
-    public List<_Data> findByCategory(String category , String type){
-        return dataRepository.findByCategoryAndType(category ,type);
+    public List<_Data> findByCategoryAndType(String code , String type){
+        return dataRepository.findByCategoryAndType(code ,type);
     }
 
 
