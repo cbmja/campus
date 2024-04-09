@@ -3,8 +3,8 @@
       layout:decorate="~{layoutFragment/layout}">
 
 <div layout:fragment="content" style="margin-left: 10%; margin-right: 10%; margin-top: 30px;" >
-
-
+    <h1>[[${subMenu}]]</h1>
+<hr>
         <div class="row my-3">
             <div class="col-6">
                 <a th:href="@{/question/create}" class="btn btn-primary"  sec:authorize="hasAuthority('ROLE_ADMIN')">질문 등록하기</a>

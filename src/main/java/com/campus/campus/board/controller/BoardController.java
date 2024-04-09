@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/board")
@@ -14,6 +15,18 @@ public class BoardController {
 
     private final MenuConfig menuConfig;
 
+
+    @GetMapping("/list")
+    public String dataList(Model model , @RequestParam(name = "category") String category){
+        model.addAttribute("menus" , menuConfig.getBoardMenu());
+        model.addAttribute("subMenu" , category);
+
+
+
+        return "board/list";
+    }
+
+/*
 
     @GetMapping("/notice/list")
     public String notice(Model model){
@@ -51,5 +64,6 @@ public class BoardController {
 
         return "board/list";
     }
+*/
 
 }

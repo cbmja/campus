@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +23,19 @@ public class DataController {
 
     private final MenuConfig menuConfig;
 
+    @GetMapping("/list")
+    public String dataList(Model model , @RequestParam(name = "category") String category){
+        model.addAttribute("menus" , menuConfig.getDataMenu());
+        model.addAttribute("subMenu" , category);
 
+
+
+        return "data/list";
+    }
+
+
+
+/*
 
     @GetMapping("/test/list")
     public String testList(Model model) throws ServletException, IOException {
@@ -63,6 +76,7 @@ public class DataController {
         // 모델에 파일 목록을 추가
         model.addAttribute("list", fileList);
     }
+*/
 
 
 }
