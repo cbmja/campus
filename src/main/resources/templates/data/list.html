@@ -14,7 +14,9 @@
             문제
             <hr>
             <div class="list-group" th:each="item : ${titems}">
-                <a href="#" class="list-group-item list-group-item-action" th:text="${item.fileName}" style="text-align : center;"></a>
+            <!--    <a th:href="@{${item.filePath}}" class="list-group-item list-group-item-action" th:text="${item.fileName}" style="text-align : center;"></a>-->
+                <a th:href="@{${item.filePath}}" th:download="${item.fileName}" class="list-group-item list-group-item-action" th:text="${item.fileName + ' / ['+item.downloadCnt+']'}"
+                   style="text-align : center;" ></a>
             </div>
             <hr>
         </div>
@@ -22,7 +24,8 @@
             답안
             <hr>
             <div class="list-group" th:each="item : ${aitems}">
-                <a href="#" class="list-group-item list-group-item-action" th:text="${item.fileName}" style="text-align : center;"></a>
+                <a th:href="@{${item.filePath}}" th:download="${item.fileName}" class="list-group-item list-group-item-action" th:text="${item.fileName + ' / ['+item.downloadCnt+']'}"
+                   style="text-align : center;" ></a>
             </div>
             <hr>
 

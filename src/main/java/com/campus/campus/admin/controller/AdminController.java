@@ -45,7 +45,7 @@ public class AdminController {
 
 
 
-        return "redirect:/admin/list?code="+form.getCategory();
+        return "redirect:/data/list?code="+form.getCategory();
     }
 
     @GetMapping("/list")

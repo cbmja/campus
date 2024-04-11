@@ -27,6 +27,9 @@ public class _Data {
     
     @Column
     private String form; //형태 A형 B형
+    
+    @Column
+    private Long downloadCnt = 0L; //다운로드 횟수
 
 
 }

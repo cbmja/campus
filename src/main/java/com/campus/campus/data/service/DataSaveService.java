@@ -24,7 +24,7 @@ public class DataSaveService {
         data.setType(form.getType());
         data.setForm(form.getForm());
         data.setFileName(form.getImpYear()+"_"+form.getCategory()+"_"+data.getForm()+".pdf");
-        data.setFilePath("C:\\campus_______________\\campus\\src\\main\\resources\\static\\data\\"+data.getType()+"\\"+data.getFileName());
+        data.setFilePath("C:\\campus_______________\\campus\\src\\main\\resources\\static\\data\\"+data.getType()+"\\");
 
         //파일 저장 경로 문제 : C:\DATA\test\파일명
         //정답: C:\DATA\answer\파일명
@@ -42,9 +42,11 @@ public class DataSaveService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        data.setFilePath("/data/"+data.getType()+"/"+data.getFileName());
+
         //파일 처리 끝
         dataRepository.save(data);
-
     }
 
 
