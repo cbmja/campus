@@ -15,7 +15,7 @@ public class BoardDataInfoService {
 
     public List<BoardData> getList(String code){
 
-        return boardDataRepository.findByCode(code);
+        return boardDataRepository.findByCodeOrderByCreateDateDesc(code);
     }
 
 }

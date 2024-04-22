@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface BoardDataRepository extends JpaRepository<BoardData, String> {
 
-    List<BoardData> findByCode(String code);
+    List<BoardData> findByCodeOrderByCreateDateDesc(String code);
 
 }
