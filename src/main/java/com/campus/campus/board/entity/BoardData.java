@@ -14,9 +14,9 @@ public class BoardData {
     @Id
     private String title; //제목
     @Column
-    private String Content; //내용
+    private String content; //내용
     @Column
-    private String id; //작성자 아이디
+    private String writer; //작성자 아이디
     @Column
     private String code; //게시판 코드
     @Column
