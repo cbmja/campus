@@ -24,7 +24,8 @@ public interface BoardDataRepository extends JpaRepository<BoardData, String> {
     Page<BoardData> findByCodeAndContentLikeOrderByCreateDateDesc(String code , String content , Pageable pageable);
 
     //전체
-    Page<BoardData> findByCodeAndTitleOrWriterOrContentLikeOrderByCreateDateDesc(String code , String title , String id , String content , Pageable pageable);
+    Page<BoardData> findByCodeAndTitleLikeOrCodeAndWriterLikeOrCodeAndContentLikeOrderByCreateDateDesc(
+            String code , String title ,String code1 , String id ,String code2 ,String content , Pageable pageable);
 
 }
 

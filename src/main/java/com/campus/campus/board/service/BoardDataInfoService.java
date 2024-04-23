@@ -37,8 +37,8 @@ public class BoardDataInfoService {
             return boardDataRepository.findByCodeAndContentLikeOrderByCreateDateDesc(code , "%"+searchKw+"%" , pageable);
         } else if (search.getType().equals("all")) {
         //전체검색
-            return boardDataRepository.findByCodeAndTitleOrWriterOrContentLikeOrderByCreateDateDesc(
-                    code , "%"+searchKw+"%" ,"%"+searchKw+"%" ,"%"+searchKw+"%" ,pageable
+            return boardDataRepository.findByCodeAndTitleLikeOrCodeAndWriterLikeOrCodeAndContentLikeOrderByCreateDateDesc(
+                    code , "%"+searchKw+"%" ,code ,"%"+searchKw+"%" ,code ,"%"+searchKw+"%" ,pageable
             );
         } else {
             return boardDataRepository.findByCodeOrderByCreateDateDesc(code , pageable);
