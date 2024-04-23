@@ -23,11 +23,11 @@ public class BoardController {
 
 
     @GetMapping("/list")
-    public String list(Model model , @RequestParam(name = "code") String code ,  @PageableDefault(size = 2)Pageable pageable){
+    public String list(Model model , @RequestParam(name = "code") String code ,  @RequestParam(value = "page" , defaultValue = "0")int page){
 
         model.addAttribute("menus" , menuConfig.getBoardMenu());
         model.addAttribute("code" , code);
-        model.addAttribute("boardDataList" , boardDataInfoService.getList(code ,pageable));
+        model.addAttribute("paging" , boardDataInfoService.getList(code ,page));
 
 
         return "board/list";

@@ -38,8 +38,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="text-center board-table" th:each="boardData : ${boardDataList}" th:object="${boardData}">
-                <td style="background-color: $teal-200;">n</td>
+            <tr class="text-center board-table" th:each="boardData , loop : ${paging}" th:object="${boardData}">
+                <!--<td style="background-color: $teal-200;" th:text="${loop.count}"></td>-->
+                <td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
                 <td th:text="*{title}"></td>
                 <td th:text="*{id}"></td>
                 <td th:text="*{createDate}"></td>
@@ -47,27 +48,51 @@
             </tr>
             </tbody>
         </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+
+    <!-- 페이징처리 시작 -->
+    <div th:if="${!paging.isEmpty()}">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+                <a class="page-link" th:href="@{|/board/list?code=${code}&page=${paging.number-1}|}" th:data-page="${paging.number-1}">
+                    <span><</span>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" th:href="@{|/board/list?code=${code}&page=0|}">1</a></li>
-            <li class="page-item"><a class="page-link" th:href="@{|/board/list?code=${code}&page=1|}">2</a></li>
-            <li class="page-item"><a class="page-link" th:href="@{|/board/list?code=${code}&page=2|}">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
+            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                th:if="${page >= paging.number-3 and page <= paging.number+3}"
+                th:classappend="${page == paging.number} ? 'active'" class="page-item">
+                <a th:text="${page}" class="page-link" th:href="@{|/board/list?code=${code}&page=${page}|}"
+                   th:data-page="${page}"></a>
+
+            </li>
+            <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+                <a class="page-link" th:href="@{|/board/list?code=${code}&page=${paging.number+1}|}" th:data-page="${paging.number+1}">
+                    <span>></span>
                 </a>
+
             </li>
         </ul>
-    </nav>
-
-
-
+    </div>
+    <!-- 페이징처리 끝 -->
 
 </div>
 
 </html>
+<!--
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" th:href="@{|/board/list?code=${code}&page=0|}">1</a></li>
+        <li class="page-item"><a class="page-link" th:href="@{|/board/list?code=${code}&page=1|}">2</a></li>
+        <li class="page-item"><a class="page-link" th:href="@{|/board/list?code=${code}&page=2|}">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+-->
