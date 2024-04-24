@@ -2,6 +2,7 @@ package com.campus.campus.user.controller;
 
 import com.campus.campus.user.dto.MemberDto;
 import com.campus.campus.user.service.MemberSaveService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,8 +34,7 @@ public class UserController {
 
         }memberSaveService.save(form);
 
-
-        return "/user/join";
+        return "redirect:/";
     }
 
     @GetMapping("/login")

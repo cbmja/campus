@@ -3,7 +3,8 @@
 
 
     <header class="navbar h-bgc">
-        <a class="navbar-brand header-a" th:href="@{/}">사이트명</a>
+        <a class="navbar-brand header-a" th:href="@{/}">사이트명 /</a>
+        <span sec:authentication="name" style="color : white"></span>
         <ul class="nav justify-content-end nav-underline flex-grow-1">
             <li class="nav-item">
                 <a class="nav-link header-a" sec:authorize="isAnonymous()" th:href="@{/user/join}">회원가입</a>
