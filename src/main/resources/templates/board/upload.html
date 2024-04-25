@@ -14,7 +14,7 @@
     <form method="post" th:action="@{/board/create}">
 
         <input type="hidden" name="code" th:value="${code}"/>
-        <!--<input type="hidden" name="id" th:value="${user.id}"/>-->
+        <input type="hidden" name="writer" th:value="${session.memberEmail}"/>
         <div class="mb-3">
             <label for="title" class="form-label">제목</label>
             <input type="text" name="title"  id="title" class="form-control">
