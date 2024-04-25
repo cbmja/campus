@@ -28,10 +28,13 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         HttpSession session = request.getSession();
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserDetails userDetails = (UserDetails)principal;
         String userEmail = ((UserDetails) principal).getUsername();
 
-        session.setAttribute("memberEmail" , userEmail);
+        Member member = new Member();
+        member.setEmail(userEmail);
+        //member.setRole((String)userDetails.getAuthorities());
+
+        session.setAttribute("member" , member);
         String redirectURL = request.getParameter("redirectURL");
         redirectURL = StringUtils.hasText(redirectURL) ? redirectURL : "/";
 

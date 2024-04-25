@@ -14,7 +14,13 @@
     <form method="post" th:action="@{/board/create}">
 
         <input type="hidden" name="code" th:value="${code}"/>
-        <input type="hidden" name="writer" th:value="${session.memberEmail}"/>
+        <div sec:authorize="isAuthenticated()">
+            <input type="hidden" name="writer" th:value="${session.member.email}"/>
+        </div>
+        <div  sec:authorize="isAnonymous()">
+            <input type="hidden" name="writer" value="비회원"/>
+        </div>
+
         <div class="mb-3">
             <label for="title" class="form-label">제목</label>
             <input type="text" name="title"  id="title" class="form-control">

@@ -27,6 +27,9 @@ public class Member {
 
     @Column
     private String job; //직업
+    
+    @Column
+    private String role; //권한
 
 
 
