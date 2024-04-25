@@ -27,8 +27,8 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         HttpSession session = request.getSession();
 
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String userEmail = ((UserDetails) principal).getUsername();
+        UserDetails userDetails = (UserDetails)authentication.getPrincipal();
+        String userEmail = userDetails.getUsername();
 
         Member member = new Member();
         member.setEmail(userEmail);
