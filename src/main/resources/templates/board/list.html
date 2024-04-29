@@ -7,9 +7,7 @@
     <h1 th:if="${code.equals('qna')}">문의사항</h1>
     <h1 th:if="${code.equals('free')}">자유 게시판</h1>
     <h1 th:if="${code.equals('notice')}">공지사항</h1>
-
 <hr>
-
     <div style="margin-left: 50%; margin-bottom: 10px">
         <form class="d-flex" role="search" th:action="@{/board/list}" method="get">
             <select class="form-select form-select-sm" aria-label="Small select example" name="type" th:field="${search.type}">
