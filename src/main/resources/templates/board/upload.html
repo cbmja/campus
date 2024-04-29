@@ -11,8 +11,14 @@
 
     <hr>
 
-    <form method="post" th:action="@{/board/create}">
-
+    <form method="post" th:action="@{/board/create}" th:object="${boardData}">
+        <div th:if="${mode.equals('edit')}">
+            <input type="hidden" name="num" th:value="*{num}"/>
+            <input type="hidden" name="mode" value="edit"/>
+        </div>
+        <div th:if="${mode.equals('create')}">
+            <input type="hidden" name="mode" value="create"/>
+        </div>
         <input type="hidden" name="code" th:value="${code}"/>
         <div sec:authorize="isAuthenticated()">
             <input type="hidden" name="writer" th:value="${session.member.email}"/>
@@ -23,11 +29,11 @@
 
         <div class="mb-3">
             <label for="title" class="form-label">제목</label>
-            <input type="text" name="title"  id="title" class="form-control">
+            <input type="text" name="title"  id="title" class="form-control" th:field="*{title}">
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">내용</label>
-            <textarea name="content"  id="content" class="form-control" rows="10"></textarea>
+            <textarea name="content"  id="content" class="form-control" rows="10" th:field="*{content}"></textarea>
         </div>
         <input type="submit" value="저장하기" class="btn btn-primary my-2">
     </form>

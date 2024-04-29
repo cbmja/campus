@@ -13,8 +13,13 @@ public class BoardDataSaveService {
 
     private final BoardDataRepository boardDataRepository;
 
-    public void save(BoardData boardData){
-        boardData.setCreateDate(LocalDateTime.now());
+    public void save(BoardData boardData , String mode){
+
+        if(mode.equals("edit")){
+            boardData.setModifyDate(LocalDateTime.now());
+        }else if(mode.equals("create")){
+            boardData.setCreateDate(LocalDateTime.now());
+        }
         boardDataRepository.save(boardData);
     }
 

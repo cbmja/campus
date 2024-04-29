@@ -24,7 +24,7 @@ class CampusApplicationTests {
 			boardData.setContent("질문 게시판 내용 : "+i);
 			boardData.setWriter("질문 게시판 작성자"+i);
 			boardData.setCreateDate(LocalDateTime.now());
-			boardDataSaveService.save(boardData);
+			boardDataSaveService.save(boardData , "d");
 		}
 
 		for(int i=1; i<=100; i++){
@@ -34,7 +34,7 @@ class CampusApplicationTests {
 			boardData.setContent("자유게시판 내용 : "+i);
 			boardData.setWriter("자유게시판 작성자"+i);
 			boardData.setCreateDate(LocalDateTime.now());
-			boardDataSaveService.save(boardData);
+			boardDataSaveService.save(boardData,"d");
 		}
 
 	}

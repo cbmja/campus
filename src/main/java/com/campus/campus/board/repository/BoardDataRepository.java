@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface BoardDataRepository extends JpaRepository<BoardData, String> {
+public interface BoardDataRepository extends JpaRepository<BoardData, Integer> {
 
     //List<BoardData> findByCodeOrderByCreateDateDesc(String code , Pageable pageable);
 

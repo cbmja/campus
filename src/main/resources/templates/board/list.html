@@ -44,7 +44,9 @@
                 <td th:text="*{writer}"></td>
                 <td th:text="*{createDate}"></td>
                 <td th:text="*{modifyDate}"></td>
-                <td>수정</td>
+                <td>
+                    <a th:href="@{|/board/edit?num=*{num}&code=${code}|}">수정</a>
+                </td>
                 <td>삭제</td>
             </tr>
             </tbody>

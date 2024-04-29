@@ -17,6 +17,12 @@ public class BoardDataInfoService {
 
     private final BoardDataRepository boardDataRepository;
 
+
+    public BoardData findById(Integer num){
+        return boardDataRepository.findById(num).get();
+    }
+
+
     public Page<BoardData> getList(String code , int page , Search search){
         Pageable pageable = PageRequest.of(page,4);
 

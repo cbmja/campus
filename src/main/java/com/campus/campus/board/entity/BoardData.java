@@ -1,8 +1,6 @@
 package com.campus.campus.board.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -12,6 +10,9 @@ import java.time.LocalDateTime;
 public class BoardData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer num; //번호
+    @Column
     private String title; //제목
     @Column
     private String content; //내용

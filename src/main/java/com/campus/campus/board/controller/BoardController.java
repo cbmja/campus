@@ -37,18 +37,39 @@ public class BoardController {
 
 
     @GetMapping("/create")
-    public String create(Model model , @RequestParam(name = "code" , required = false) String code){
+    public String create(Model model , @RequestParam(name = "code" , required = false) String code , @ModelAttribute BoardData boardData){
         model.addAttribute("menus" , menuConfig.getBoardMenu());
         model.addAttribute("code" , code);
+        model.addAttribute("mode","create");
 
         return "board/upload";
     }
 
     @PostMapping("/create")
-    public String createProc(Model model , @ModelAttribute BoardData boardData){
+    public String createProc(Model model , @ModelAttribute BoardData boardData , @RequestParam(name = "mode" , required = false) String mode){
 
-        boardDataSaveService.save(boardData);
+        if(mode.equals("edit")){
+            BoardData boardData1 = boardDataInfoService.findById(boardData.getNum());
+            boardData1.setContent(boardData.getContent());
+            boardData1.setTitle((boardData.getTitle()));
+            boardDataSaveService.save(boardData1 , mode);
+        }else {
+            boardDataSaveService.save(boardData , mode);
+        }
+
+
+
         return "redirect:/board/list?code="+boardData.getCode();
+    }
+
+    @GetMapping("/edit")
+    public String create(Model model , @RequestParam(name = "code" , required = false) String code , @RequestParam(name = "num" , required = false) Integer num){
+        model.addAttribute("menus" , menuConfig.getBoardMenu());
+        model.addAttribute("code" , code);
+        model.addAttribute("boardData" , boardDataInfoService.findById(num));
+        model.addAttribute("mode","edit");
+
+        return "board/upload";
     }
 
 
